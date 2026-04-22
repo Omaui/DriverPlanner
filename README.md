@@ -1,50 +1,51 @@
-# Welcome to your Expo app 👋
+# 🏁 Driver Planner - Gestão de Logística e Alertas Nativos
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+O **Driver Planner** é um aplicativo robusto desenvolvido para motoristas que necessitam de um gerenciamento rigoroso de agenda. Diferente de uma agenda comum, ele automatiza o ciclo de vida das corridas, removendo registros passados e gerenciando notificações push nativas para garantir que o profissional nunca perca um horário.
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Funcionalidades Técnicas
 
-   ```bash
-   npm install
-   ```
+* **📅 Agendamento Inteligente**: Sistema que diferencia Corridas Únicas de Recorrentes (semanais) com persistência local.
+* **🔔 Notificações em Tempo Real**: Integração com `expo-notifications` para disparar alertas com prioridade máxima no sistema operacional.
+* **🧹 Auto-Cleaning**: Algoritmo de limpeza automática que filtra e remove corridas únicas que já foram concluídas, mantendo o banco de dados local otimizado.
+* **💾 Persistência Offline**: Uso de `AsyncStorage` para garantir que todos os dados estejam disponíveis mesmo sem conexão com a internet.
+* **🔄 Sincronização de Foco**: Uso do hook `useFocusEffect` para garantir que a lista de compromissos esteja sempre atualizada ao navegar entre telas (evitando dados obsoletos na UI).
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🛠️ Stack Tecnológica
 
-In the output, you'll find options to open the app in a
+* **Framework**: React Native com Expo (Router).
+* **Linguagem**: TypeScript (Tipagem rigorosa para interfaces de dados).
+* **Armazenamento**: AsyncStorage (Persistência NoSQL local).
+* **Native Features**: Expo Notifications (Gerenciamento de agendamentos semanais e triggers locais).
+* **UI/UX**: Design responsivo com componentes nativos e ícones da biblioteca Lucide.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🧠 Desafios de Engenharia Solucionados
 
-## Get a fresh project
+1.  **Lógica de Notificações Semanais**: Implementação de gatilhos baseados em dias da semana (`SchedulableTriggerInputTypes.WEEKLY`), exigindo tratamento de índices de arrays para sincronização com o calendário do sistema.
+2.  **Gerenciamento de I/O Assíncrono**: Desenvolvimento de um fluxo de carga e limpeza de dados que garante a integridade do estado da aplicação antes da renderização.
+3.  **Configuração de Handlers de Notificação**: Ajuste fino dos comportamentos de notificação em primeiro plano (foreground), garantindo que banners e sons sejam disparados com alta prioridade.
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
-```
+## 📂 Como Executar o Projeto
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+1.  **Clone este repositório:**
+    ```bash
+    git clone [https://github.com/seu-usuario/driver-planner.git](https://github.com/seu-usuario/driver-planner.git)
+    ```
+2.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+3.  **Inicie o ambiente de desenvolvimento:**
+    ```bash
+    npx expo start
+    ```
+4.  Escaneie o QR Code com o aplicativo **Expo Go** em um dispositivo Android ou iOS.
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
